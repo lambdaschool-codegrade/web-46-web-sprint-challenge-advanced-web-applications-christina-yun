@@ -2,6 +2,7 @@ import React from 'react';
 import MutationObserver from 'mutationobserver-shim';
 
 import { render, screen} from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 import ColorList from './ColorList';
 
 const testData = [
@@ -29,7 +30,19 @@ test("Renders a list of colors without errors", () => {
 });
 
 test("Renders the EditForm when editing = true and does not render EditForm when editing = false", () => {
-    render(<ColorList colors={testData}/>)
+    const toggleEdit = jest.fn(value => !value);
+    
+    const { rerender } = render(<ColorList editing={true}colors={testData} toggleEdit={toggleEdit}/>)
+    
     const limeGreen = screen.queryByText(/limeGreen/i);
     expect(limeGreen).toBeInTheDocument();
+    let editForm = screen.queryByText('save');
+    expect(editForm).toBeInTheDocument()
+    userEvent.click(limeGreen);
+    expect(toggleEdit).toHaveBeenCalledTimes(1);
+
+    rerender(<ColorList editing={false}colors={testData} toggleEdit={toggleEdit}/>)
+    editForm = screen.queryByText('save');
+    expect(editForm).not.toBeInTheDocument()
+
 });
