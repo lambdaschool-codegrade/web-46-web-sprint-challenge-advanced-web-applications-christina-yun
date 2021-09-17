@@ -30,6 +30,6 @@ test("Renders a list of colors without errors", () => {
 
 test("Renders the EditForm when editing = true and does not render EditForm when editing = false", () => {
     render(<ColorList colors={testData}/>)
-    const blue = screen.queryByText(/blue/i);
-    expect(blue).toBeInTheDocument();
+    const limeGreen = screen.queryByText(/limeGreen/i);
+    expect(limeGreen).toBeInTheDocument();
 });
