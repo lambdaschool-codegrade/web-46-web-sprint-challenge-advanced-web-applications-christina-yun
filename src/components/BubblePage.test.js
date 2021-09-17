@@ -27,9 +27,8 @@ test("Renders without errors", ()=> {
 
 test("Renders appropriate number of colors passed in through mock", async ()=> {
     //Keep in mind that our service is called on mount for this component.
-    // render(<BubblePage />)
-    // mockFetchColorService.mockResolvedValueOnce(testData);
-    // const colors = await screen.findAllByTestId('color');
-    // expect(colors).toHaveLength(11);
+    render(<BubblePage />)
+    mockFetchColorService.mockResolvedValueOnce(testData);
+    
 
 });

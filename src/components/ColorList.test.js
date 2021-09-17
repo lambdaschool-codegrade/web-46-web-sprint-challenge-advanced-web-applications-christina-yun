@@ -44,5 +44,4 @@ test("Renders the EditForm when editing = true and does not render EditForm when
     rerender(<ColorList editing={false}colors={testData} toggleEdit={toggleEdit}/>)
     editForm = screen.queryByText('save');
     expect(editForm).not.toBeInTheDocument()
-
 });
