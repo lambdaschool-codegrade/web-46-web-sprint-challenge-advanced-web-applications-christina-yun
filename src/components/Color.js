@@ -10,6 +10,7 @@ const Color = (props) => {
     }
 
     const handleEdit = (e) => {
+        e.stopPropagation();
         setEditColor(color);
         toggleEdit(true);
     }

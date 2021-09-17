@@ -1,13 +1,13 @@
 import axiosWithAuth from '../helpers/axiosWithAuth';
 
 const fetchColorService = (setColors) => {
-    axiosWithAuth()
+    return axiosWithAuth()
         .get('http://localhost:5000/api/colors')
         .then(resp => {
             setColors(resp.data)
         })
         .catch(err => {
-            console.error(err)
+            console.error(err);
         })
 }
 

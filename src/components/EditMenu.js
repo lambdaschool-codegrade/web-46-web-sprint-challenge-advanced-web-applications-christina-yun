@@ -16,6 +16,7 @@ const EditMenu = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     saveEdit(editColor);
 
   }
