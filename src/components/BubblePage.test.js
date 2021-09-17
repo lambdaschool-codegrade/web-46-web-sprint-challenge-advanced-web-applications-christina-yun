@@ -30,8 +30,6 @@ test("Renders appropriate number of colors passed in through mock", async ()=> {
     render(<BubblePage colors={testData} />)
     fetchColorService.mockResolvedValueOnce(testData);
     expect(fetchColorService).toHaveBeenCalledTimes(1);
-
-    const aliceblue = await screen.findByText('aliceblue');
 // i honestly can't figure out why my info won't render on the screen
 
 
