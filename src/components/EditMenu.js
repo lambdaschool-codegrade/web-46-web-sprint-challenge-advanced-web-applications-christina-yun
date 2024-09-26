@@ -2,7 +2,7 @@ import React from 'react';
 
 const EditMenu = (props) => {
   const {editColor, setEditColor, saveEdit, toggleEdit} = props;
-  
+
   const handleChange = (e) => {
     if (e.target.name === "colorName") {
       setEditColor({ ...editColor, color: e.target.value })
@@ -16,7 +16,9 @@ const EditMenu = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     saveEdit(editColor);
+
   }
 
   const handleCancel = () => {
@@ -30,7 +32,7 @@ const EditMenu = (props) => {
           name="colorName"
           data-testid="colorName"
           id="colorName"
-          onChange={ handleChange}
+          onChange={handleChange}
           value={editColor.color}
         />
       </label>
